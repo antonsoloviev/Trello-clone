@@ -1,0 +1,51 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 240px;
+  height: 128px;
+  background-color: $white-color;
+  padding: 8px;
+  margin-bottom: 16px;
+  border-radius: 8px;
+  overflow: hidden;
+
+  &-header {
+    display: flex;
+    justify-content: flex-end;
+    gap: 4px;
+    margin-bottom: 3px;
+  }
+
+  &-body {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 3px;
+
+    .card-title {
+      display: flex;
+      align-items: center;
+      font-size: 1.6rem;
+      height: 64px;
+      // text-align: center;
+
+    }
+  }
+
+  &-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.4rem;
+  }
+}
+
+.button-edit,
+.button-del,
+.button-move {
+  height: 24px;
+  border: 1px solid $bg-color;
+  padding: 4px;
+  font-size: 1.4rem;
+}

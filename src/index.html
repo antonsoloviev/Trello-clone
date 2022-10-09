@@ -28,16 +28,60 @@
         </div>
       </div>
     </header>
-    <main>
-    <div class="todo">
+    <main class="main">
+        <div class="column">
+          <div class="column-header">
+            <div class="column-header__title">TODO:</div>
+            <span class="column-header__counter todo__counter">N</span>
+          </div>
+          <div class="column-list todo">
+            <div class="card todo-card">
+              <div class="card-header">
+                <button class="button button-edit">View/Edit</button>
+                <button class="button button-del">Delete</button>
 
-    </div>
-    <div class="progress">
+              </div>
+              <div class="card-body">
+                <p class="card-title">Не забыть сделать хорошо всем</p>
+                <button class="button button-move">Move</button>
+              </div>
+              <div class="card-footer">
+                <div class="card-user">User Name</div>
+                <div class="card-date">25.06.22</div>
 
-    </div>
-    <div class="done">
+              </div>
 
-    </div>
+    
+            </div>
+
+          </div>
+          <button class="button button-add">Add todo</button>
+        </div>
+        <div class="column">
+          <div class="column-header">
+            <div class="column-header__title">IN PROGRESS:</div>
+            <span class="column-header__counter progress__counter">N</span>
+          </div>
+          <div class="column-list progress">
+            <div class="card progress-card">
+    
+            </div>
+    
+          </div>
+        </div>
+        <div class="column">
+          <div class="column-header">
+            <div class="column-header__title">DONE:</div>
+            <span class="column-header__counter done__counter">N</span>
+          </div>
+          <div class="column-list done">
+            <!-- <div class="card done-card">
+    
+            </div> -->
+    
+          </div>
+          <button class="button button-del-all">Delete all</button>
+        </div>
     </main>
   </div>
 
