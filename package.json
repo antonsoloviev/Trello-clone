@@ -1,0 +1,24 @@
+{
+  "name": "trello",
+  "version": "1.0.0",
+  "description": "trello clone",
+  "source": "src/index.html",
+  "main": "index.js",
+  "scripts": {
+    "dev": "parcel",
+    "build": "parcel build --public-url ."
+  },
+  "parcelCleanPaths": [
+    "dist",
+    ".cache"
+  ],
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.7.0",
+    "parcel": "^2.7.0",
+    "parcel-plugin-clean-easy": "^1.0.2",
+    "sass": "^1.55.0"
+  }
+}

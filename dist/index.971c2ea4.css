@@ -1,0 +1,56 @@
+.header {
+  width: 100%;
+  height: 80px;
+  background-color: #ebecf0;
+}
+
+.header-container {
+  height: 100%;
+  max-width: 1200px;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  padding: 16px 32px;
+  display: flex;
+}
+
+.header-container .header-logo {
+  height: 32px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.header-container .header-logo a {
+  font-size: 2rem;
+  font-weight: bold;
+  line-height: 1.5;
+}
+
+.header-container .header-clock {
+  height: 32px;
+  width: 96px;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  display: flex;
+}
+
+html, body {
+  height: 100%;
+  color: #172b4d;
+  font-family: Roboto, sans-serif;
+}
+
+.page-wrapper {
+  min-height: 100%;
+  flex-direction: column;
+  display: flex;
+  overflow: hidden;
+}
+
+.main {
+  flex: auto;
+}
+
+/*# sourceMappingURL=index.971c2ea4.css.map */

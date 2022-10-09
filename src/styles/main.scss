@@ -1,0 +1,25 @@
+/* import */
+@import 'fonts.scss';
+@import 'variables.scss';
+@import 'mixins.scss';
+
+@import 'header.scss';
+
+
+html,
+body {
+  height: 100%;
+  font-family: $font-family-default;
+  color: $main-text-color;
+}
+
+.page-wrapper {
+  display: flex;
+  overflow: hidden;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.main {
+  flex: 1 1 auto;
+}
