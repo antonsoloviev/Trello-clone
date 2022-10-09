@@ -23,19 +23,24 @@
       height: 32px;
 
       a {
-        font-size: 2rem;
+        font-size: 2.4rem;
         font-weight: bold;
         line-height: 1.5;
+        cursor: pointer;
+        user-select: none;
       }
     }
 
-    .header-clock {
+    .clock {
       display: flex;
       justify-content: center;
       align-items: center;
       height: 32px;
       width: 96px;
       font-size: 2rem;
+      border: 1px solid grey;
+      border-radius: 10px;
+      user-select: none;
     }
   }
 }
