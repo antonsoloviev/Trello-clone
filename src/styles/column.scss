@@ -38,11 +38,16 @@
   background: #fff;
   border: 1px solid $bg-color;
   border-radius: 8px;
-
   cursor: pointer;
   user-select: none;
   transition: background-color ease 0.2s;
+
+  &:hover {
+    background-color: $bg-color;
+  }
 }
+
+
 
 .button-add:hover {
   background-color: #d1e7dd;

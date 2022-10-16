@@ -35,11 +35,16 @@
             <span class="column-header__counter todo__counter">N</span>
           </div>
           <div class="column-list todo">
+            
+
+
+          </div>
+          <button class="button button-add" >Add todo</button>
+          <template class="template-todo-card">
             <div class="card todo-card">
               <div class="card-header">
                 <button class="button button-edit">View/Edit</button>
                 <button class="button button-del">Delete</button>
-
               </div>
               <div class="card-body">
                 <p class="card-title">Не забыть сделать хорошо всем</p>
@@ -48,14 +53,9 @@
               <div class="card-footer">
                 <div class="card-user">User Name</div>
                 <div class="card-date">25.06.22</div>
-
               </div>
-
-    
             </div>
-
-          </div>
-          <button class="button button-add">Add todo</button>
+          </template>
         </div>
         <div class="column">
           <div class="column-header">
@@ -75,17 +75,56 @@
             <span class="column-header__counter done__counter">N</span>
           </div>
           <div class="column-list done">
-            <!-- <div class="card done-card">
-    
-            </div> -->
+            <div class="card todo-card">
+              <div class="card-header">
+                <button class="button button-edit">View/Edit</button>
+                <button class="button button-del">Delete</button>
+              </div>
+              <div class="card-body">
+                <p class="card-title">Не забыть сделать хорошо всем</p>
+                <button class="button button-move">Move</button>
+              </div>
+              <div class="card-footer">
+                <div class="card-user">User Name</div>
+                <div class="card-date">25.06.22</div>
+              </div>
+            </div>
     
           </div>
           <button class="button button-del-all">Delete all</button>
         </div>
+
+        <dialog class="dialog dialog-add-new">
+          <div class="dialog-container">
+            <input class="input-title" type="text" placeholder="Enter title..."></input>
+            <textarea class="input-text" placeholder="Enter todo..."></textarea>
+            <div class="dialog-footer">
+              <select class="select-users" name="users" id="user-select">
+                <option value="">Select User</option>
+                <option value="ivan">Ivan</option>
+                <option value="adam">Adam</option>
+                <option value="eva">Eva</option>
+              </select>
+              <button class="button button-cancel">Cancel</button>
+              <button class="button button-add-confirm">Confirm</button>
+            </div>
+          </div>
+        </dialog>
     </main>
+
+
+
   </div>
 
-  <script src="./index.js"></script>
+
+  <script src="./store.js"></script>
+  <script type="module" src="./index.js"></script>
+  <!-- <script src="./utils.js"></script> -->
+  <!-- <script src="./store.js"></script> -->
+  <!-- <script src="./createElement.js"></script> -->
+  <!-- <script src="./todo.js"></script> -->
+  <!-- <script src="./header-part.js"></script> -->
+  <!-- <script src="./description-part.js"></script> -->
   
 </body>
 
