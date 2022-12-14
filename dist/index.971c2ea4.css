@@ -148,7 +148,7 @@
   font-size: 1.4rem;
 }
 
-.dialog-add-new {
+.dialog-add-new, .dialog-edit {
   width: 496px;
   border: none;
   position: fixed;
@@ -156,20 +156,20 @@
   transform: translate(-248px, 96px);
 }
 
-.dialog-add-new::backdrop {
+.dialog-add-new::backdrop, .dialog-edit::backdrop {
   -webkit-backdrop-filter: blur(2px);
   -webkit-backdrop-filter: blur(2px);
   backdrop-filter: blur(2px);
   background-color: #0000001a;
 }
 
-.dialog-add-new .dialog-container {
+.dialog-add-new .dialog-container, .dialog-edit .dialog-container {
   flex-direction: column;
   padding: 16px;
   display: flex;
 }
 
-.dialog-add-new .dialog-container .input-title {
+.dialog-add-new .dialog-container .input-title, .dialog-edit .dialog-container .input-title {
   max-width: 248px;
   height: 32px;
   text-align: left;
@@ -180,7 +180,7 @@
   font-weight: 500;
 }
 
-.dialog-add-new .dialog-container .input-text {
+.dialog-add-new .dialog-container .input-text, .dialog-edit .dialog-container .input-text {
   max-width: 464px;
   min-height: 96px;
   text-align: left;
@@ -190,13 +190,13 @@
   font-size: 1.6rem;
 }
 
-.dialog-add-new .dialog-container .dialog-footer {
+.dialog-add-new .dialog-container .dialog-footer, .dialog-edit .dialog-container .dialog-footer {
   justify-content: center;
   gap: 16px;
   display: flex;
 }
 
-.dialog-add-new .dialog-container .dialog-footer select {
+.dialog-add-new .dialog-container .dialog-footer select, .dialog-edit .dialog-container .dialog-footer select {
   border: 1px solid #ebecf0;
   border-radius: 8px;
   font-size: 1.6rem;

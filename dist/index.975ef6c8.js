@@ -532,52 +532,18 @@ function hmrAcceptRun(bundle, id) {
 }
 
 },{}],"8lqZg":[function(require,module,exports) {
+var _storeJs = require("./modules/store.js");
+// import './modules/todo.js';
+var _todoJs = require("./modules/todo.js");
 var _utilsJs = require("./modules/utils.js");
 window.addEventListener("load", (event)=>{
     (0, _utilsJs.clockStart)();
-    renderTodo(window.store.notes);
+    (0, _todoJs.renderTodo)(store.notes);
+// renderInProgress(store.notes);
+// renderDone(store.notes);
 });
-const todoListElement = document.querySelector(".todo");
-const modalAdd = document.querySelector(".dialog-add-new");
-const buttonAdd = document.querySelector(".button-add");
-buttonAdd.addEventListener("click", (event)=>{
-    modalAdd.showModal();
-});
-const buttonAddCancel = document.querySelector(".button-cancel");
-buttonAddCancel.addEventListener("click", (event)=>{
-    modalAdd.close();
-});
-const buttonAddConfirm = document.querySelector(".button-add-confirm");
-buttonAddConfirm.addEventListener("click", (event)=>{
-    const todoTitle = document.querySelector(".input-title");
-    const todoDescription = document.querySelector(".input-text");
-    const todoUser = document.querySelector(".select-users");
-    if (todoTitle.value) window.store.notes.push({
-        id: (0, _utilsJs.generateRandomId)(),
-        title: todoTitle.value,
-        description: todoDescription.value,
-        user: todoUser.options[todoUser.selectedIndex].text,
-        date: (0, _utilsJs.generateDate)()
-    });
-    modalAdd.close();
-    renderTodo(store.notes);
-});
-function renderTodo(notes) {
-    todoListElement.innerHTML = "";
-    todoListElement.append(...notes.map(getTodoCard));
-}
-function getTodoCard(item) {
-    const template = document.querySelector(".template-todo-card").content.cloneNode(true);
-    const title = template.querySelector(".card-title");
-    const user = template.querySelector(".card-user");
-    const date = template.querySelector(".card-date");
-    title.textContent = item.title;
-    user.textContent = item.user;
-    date.textContent = item.date;
-    return template;
-}
 
-},{"./modules/utils.js":"hA2Bv"}],"hA2Bv":[function(require,module,exports) {
+},{"./modules/utils.js":"hA2Bv","./modules/store.js":"1GAXM","./modules/todo.js":"6zP0E"}],"hA2Bv":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "generateRandomId", ()=>generateRandomId);
@@ -634,6 +600,109 @@ exports.export = function(dest, destName, get) {
     });
 };
 
-},{}]},["ShInH","8lqZg"], "8lqZg", "parcelRequirea26f")
+},{}],"1GAXM":[function(require,module,exports) {
+window.store = {
+    notes: []
+};
+window.addEventListener("visibilitychange", ()=>{
+    const notesJSON = JSON.stringify(window.store.notes);
+    localStorage.setItem("notes", notesJSON);
+});
+window.addEventListener("load", ()=>{
+    const notesJSON = localStorage.getItem("notes") || "[]";
+    store.notes = JSON.parse(notesJSON);
+// renderTodo(store.notes);
+});
+
+},{}],"6zP0E":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "renderTodo", ()=>renderTodo);
+var _utilsJs = require("./utils.js");
+const todoListElement = document.querySelector(".todo");
+todoListElement.addEventListener("click", (event)=>{
+    const element = event.target;
+    const classNames = [
+        "button-edit",
+        "button-del",
+        "button-move"
+    ];
+    if (!classNames.some((className)=>element.classList.contains(className))) return;
+    if (element.classList.contains("button-edit")) {
+        const todoItem = element.closest(".todo-card");
+        console.log("edit");
+        const todoItemTitle = modalEdit.querySelector(".input-title");
+        const todoItemDescription = modalEdit.querySelector(".input-text");
+        const todoItemUser = modalEdit.querySelector(".select-users");
+        const todoItemId = Number(todoItem.dataset.id);
+        let todoItemNote = store.notes.find((item)=>item.id === todoItemId);
+        todoItemTitle.value = todoItemNote.title;
+        todoItemDescription.textContent = todoItemNote.description;
+        todoItemUser.options[todoItemUser.selectedIndex].text = todoItemNote.user;
+        modalEdit.showModal();
+    // renderTodo(store.notes);
+    }
+    if (element.classList.contains("button-del")) {
+        const todoItem1 = element.closest(".todo-card");
+        console.log("del");
+        const todoItemId1 = Number(todoItem1.dataset.id);
+        let index = store.notes.findIndex((item)=>item.id === todoItemId1);
+        store.notes.splice(index, 1);
+        renderTodo(store.notes);
+    }
+    if (element.classList.contains("button-move")) {
+        const todoItem2 = element.closest(".todo-card");
+        console.log("move");
+    // renderTodo(store.notes);
+    }
+});
+const modalEdit = document.querySelector(".dialog-edit");
+const buttonEditCancel = modalEdit.querySelector(".button-cancel");
+buttonEditCancel.addEventListener("click", (event)=>{
+    modalEdit.close();
+});
+const modalAdd = document.querySelector(".dialog-add-new");
+const buttonAdd = document.querySelector(".button-add");
+buttonAdd.addEventListener("click", (event)=>{
+    modalAdd.showModal();
+});
+const buttonAddCancel = modalAdd.querySelector(".button-cancel");
+buttonAddCancel.addEventListener("click", (event)=>{
+    modalAdd.close();
+});
+const buttonAddConfirm = modalAdd.querySelector(".button-add-confirm");
+buttonAddConfirm.addEventListener("click", (event)=>{
+    const todoTitle = modalAdd.querySelector(".input-title");
+    const todoDescription = modalAdd.querySelector(".input-text");
+    const todoItemUser = modalAdd.querySelector(".select-users");
+    if (todoTitle.value) store.notes.push({
+        id: (0, _utilsJs.generateRandomId)(),
+        title: todoTitle.value,
+        description: todoDescription.value,
+        user: todoItemUser.options[todoItemUser.selectedIndex].text,
+        date: (0, _utilsJs.generateDate)()
+    });
+    renderTodo(store.notes);
+    todoTitle.value = "";
+    todoDescription.value = "";
+    modalAdd.close();
+});
+function renderTodo(notes) {
+    todoListElement.innerHTML = "";
+    todoListElement.append(...notes.map(getTodoCard));
+}
+function getTodoCard(item) {
+    const template = document.querySelector(".template-todo-card").content.cloneNode(true);
+    const title = template.querySelector(".card-title");
+    const user = template.querySelector(".card-user");
+    const date = template.querySelector(".card-date");
+    title.textContent = item.title;
+    user.textContent = item.user;
+    date.textContent = item.date;
+    template.querySelector(".todo-card").setAttribute("data-id", item.id);
+    return template;
+}
+
+},{"./utils.js":"hA2Bv","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["ShInH","8lqZg"], "8lqZg", "parcelRequirea26f")
 
 //# sourceMappingURL=index.975ef6c8.js.map
