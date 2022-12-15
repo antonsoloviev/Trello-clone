@@ -143,13 +143,13 @@
     }
   }
 })({"ShInH":[function(require,module,exports) {
-"use strict";
 var global = arguments[3];
 var HMR_HOST = null;
 var HMR_PORT = null;
 var HMR_SECURE = false;
 var HMR_ENV_HASH = "d6ea1d42532a7575";
 module.bundle.HMR_BUNDLE_ID = "890e741a975ef6c8";
+"use strict";
 /* global HMR_HOST, HMR_PORT, HMR_ENV_HASH, HMR_SECURE, chrome, browser, globalThis, __parcel__import__, __parcel__importScripts__, ServiceWorkerGlobalScope */ /*::
 import type {
   HMRAsset,
@@ -543,64 +543,7 @@ window.addEventListener("load", (event)=>{
 // renderDone(store.notes);
 });
 
-},{"./modules/utils.js":"hA2Bv","./modules/store.js":"1GAXM","./modules/todo.js":"6zP0E"}],"hA2Bv":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "generateRandomId", ()=>generateRandomId);
-parcelHelpers.export(exports, "generateDate", ()=>generateDate);
-parcelHelpers.export(exports, "clockStart", ()=>clockStart);
-function generateRandomId() {
-    return new Date().getTime();
-}
-function generateDate() {
-    return new Date().toLocaleDateString();
-}
-function clockUpdate() {
-    let clock = document.querySelector(".clock");
-    let date = new Date();
-    let hours = date.getHours();
-    if (hours < 10) hours = "0" + hours;
-    clock.children[0].innerHTML = hours;
-    let minutes = date.getMinutes();
-    if (minutes < 10) minutes = "0" + minutes;
-    clock.children[1].innerHTML = minutes;
-}
-function clockStart() {
-    let clockId = setInterval(clockUpdate, 5000);
-    clockUpdate();
-}
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gkKU3":[function(require,module,exports) {
-exports.interopDefault = function(a) {
-    return a && a.__esModule ? a : {
-        default: a
-    };
-};
-exports.defineInteropFlag = function(a) {
-    Object.defineProperty(a, "__esModule", {
-        value: true
-    });
-};
-exports.exportAll = function(source, dest) {
-    Object.keys(source).forEach(function(key) {
-        if (key === "default" || key === "__esModule" || dest.hasOwnProperty(key)) return;
-        Object.defineProperty(dest, key, {
-            enumerable: true,
-            get: function() {
-                return source[key];
-            }
-        });
-    });
-    return dest;
-};
-exports.export = function(dest, destName, get) {
-    Object.defineProperty(dest, destName, {
-        enumerable: true,
-        get: get
-    });
-};
-
-},{}],"1GAXM":[function(require,module,exports) {
+},{"./modules/store.js":"1GAXM","./modules/todo.js":"6zP0E","./modules/utils.js":"hA2Bv"}],"1GAXM":[function(require,module,exports) {
 window.store = {
     notes: []
 };
@@ -703,6 +646,63 @@ function getTodoCard(item) {
     return template;
 }
 
-},{"./utils.js":"hA2Bv","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["ShInH","8lqZg"], "8lqZg", "parcelRequirea26f")
+},{"./utils.js":"hA2Bv","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"hA2Bv":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "generateRandomId", ()=>generateRandomId);
+parcelHelpers.export(exports, "generateDate", ()=>generateDate);
+parcelHelpers.export(exports, "clockStart", ()=>clockStart);
+function generateRandomId() {
+    return new Date().getTime();
+}
+function generateDate() {
+    return new Date().toLocaleDateString();
+}
+function clockUpdate() {
+    let clock = document.querySelector(".clock");
+    let date = new Date();
+    let hours = date.getHours();
+    if (hours < 10) hours = "0" + hours;
+    clock.children[0].innerHTML = hours;
+    let minutes = date.getMinutes();
+    if (minutes < 10) minutes = "0" + minutes;
+    clock.children[1].innerHTML = minutes;
+}
+function clockStart() {
+    let clockId = setInterval(clockUpdate, 5000);
+    clockUpdate();
+}
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gkKU3":[function(require,module,exports) {
+exports.interopDefault = function(a) {
+    return a && a.__esModule ? a : {
+        default: a
+    };
+};
+exports.defineInteropFlag = function(a) {
+    Object.defineProperty(a, "__esModule", {
+        value: true
+    });
+};
+exports.exportAll = function(source, dest) {
+    Object.keys(source).forEach(function(key) {
+        if (key === "default" || key === "__esModule" || dest.hasOwnProperty(key)) return;
+        Object.defineProperty(dest, key, {
+            enumerable: true,
+            get: function() {
+                return source[key];
+            }
+        });
+    });
+    return dest;
+};
+exports.export = function(dest, destName, get) {
+    Object.defineProperty(dest, destName, {
+        enumerable: true,
+        get: get
+    });
+};
+
+},{}]},["ShInH","8lqZg"], "8lqZg", "parcelRequirea26f")
 
 //# sourceMappingURL=index.975ef6c8.js.map
